@@ -24,29 +24,37 @@ const ViewNews = () => {
             <Nav />
             <div className="container">
                 <div className="row">
-                        <div className="row g-4 px-2 py-3">
-                            {
-                                newsData.articles.map(
-                                    (value, index) => {
-                                        return (
-                                            <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                                <div class="card">
-                                                    <img src={value.urlToImage} class="card-img-top" alt="..." />
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">{value.title}</h5>
-                                                        <p class="card-text">{value.description}</p>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <a href={value.url} class="card-link"target='_blank'>Read More</a>
-                                                    </div>
+                    <div className="row g-4 px-2 py-3">
+                        {
+                            newsData.articles.map(
+                                (value, index) => {
+                                    return (
+                                        <div className="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                                            <div className="card h-100">
+                                                <img
+                                                    src={value.urlToImage || "https://via.placeholder.com/300x200?text=No+Image"}
+                                                    className="card-img-top"
+                                                    alt="..."
+                                                    style={{ height: '330px', objectFit: 'cover' }}
+                                                />
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{value.title}</h5>
+                                                    <p class="card-text">{value.description}</p>
                                                 </div>
-                                            </div>
-                                        )
-                                    }
-                                )
-                            }
+                                                <div className="card-body">
+                                                    <a href={value.url} className="card-link" target="_blank" rel="noopener noreferrer">
+                                                        Read More
+                                                    </a>
+                                                </div>
 
-                        </div>
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                            )
+                        }
+
+                    </div>
 
                 </div>
             </div>
